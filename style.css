@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    background: #0b0820;
+    color: #f0eeff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 30% 20%, #1a1040, #0b0820 80%);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ЭКРАН ЗАГРУЗКИ */
+#splash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 28px;
+    animation: fadeOut 2s ease forwards;
+}
+
+#splash h1 {
+    font-size: 60px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+/* ШАПКА */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #f9d976;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* НАВИГАЦИЯ */
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6a6478;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btn.active {
+    color: #f9d976;
+    transform: scale(1.1);
+}
+
+/* СТРАНИЦЫ */
+.page {
+    display: none;
+    padding: 20px 0;
+    animation: fadePage 0.4s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadePage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #f0eeff;
+}
+
+#herName {
+    color: #f9d976;
+}
+
+.heart-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.heart {
+    font-size: 60px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.2); }
+    60% { transform: scale(1); }
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    color: #f0eeff;
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.message-box {
+    margin-top: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    color: #d0c8e0;
+    font-size: 16px;
+    text-align: center;
+}
+
+.day-counter {
+    font-size: 48px;
+    color: #f9d976;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.playlist {
+    list-style: none;
+    padding: 0;
+}
+
+.playlist li {
+    padding: 12px;
+    margin: 6px 0;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    font-size: 18px;
+}
+
+.thought-box p {
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    border-left: 2px solid #f9d976;
+    color: #d0c8e0;
+}
+
+footer {
+    text-align: center;
+    padding: 16px 0 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.01);
+    margin-top: auto;
+}
+
+/* СВЕТЛАЯ ТЕМА */
+body.light #app {
+    background: radial-gradient(ellipse at 30% 20%, #f5f0fa, #e8e0f0 80%);
+    color: #1c1a26;
+}
+
+body.light header h1 {
+    color: #b78cfa;
+}
+
+body.light .btn {
+    color: #1c1a26;
+    border-color: rgba(0, 0, 0, 0.04);
+}
+
+body.light .message-box {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.02);
+    color: #1c1a26;
+}
+
+body.light .thought-box p {
+    background: rgba(0, 0, 0, 0.02);
+    border-left-color: #b78cfa;
+    color: #1c1a26;
+}
+
+body.light .playlist li {
+    background: rgba(0, 0, 0, 0.02);
+    color: #1c1a26;
+}

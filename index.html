@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Твоё тепло</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- ЭКРАН ЗАГРУЗКИ -->
+        <div id="splash">
+            <h1>💖</h1>
+            <p>для тебя</p>
+        </div>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <div id="content" style="display:none;">
+            <header>
+                <h1>🌙 Твоё тепло</h1>
+                <button id="themeToggle">☀️</button>
+            </header>
+
+            <nav>
+                <button class="nav-btn active" data-page="home">🏠</button>
+                <button class="nav-btn" data-page="days">📅</button>
+                <button class="nav-btn" data-page="messages">💌</button>
+                <button class="nav-btn" data-page="playlist">🎵</button>
+                <button class="nav-btn" data-page="thoughts">📝</button>
+            </nav>
+
+            <main>
+                <!-- ГЛАВНАЯ -->
+                <section id="page-home" class="page active">
+                    <h2>Привет, <span id="herName">Любимая</span> ❤️</h2>
+                    <p>Я хочу, чтобы ты знала: ты — самое тёплое, что есть в моей жизни.</p>
+                    <div class="heart-container">
+                        <div class="heart">❤️</div>
+                    </div>
+                    <button id="randomMessageBtn" class="btn">Скажи что-то тёплое</button>
+                    <p id="randomMessageDisplay" class="message-box"></p>
+                </section>
+
+                <!-- СЧЁТЧИК ДНЕЙ -->
+                <section id="page-days" class="page" style="display:none;">
+                    <h2>📅 Мы знакомы</h2>
+                    <div class="day-counter">
+                        <span id="daysCount">0</span> дней
+                    </div>
+                    <p>И каждый день с тобой — тёплый.</p>
+                </section>
+
+                <!-- СООБЩЕНИЯ -->
+                <section id="page-messages" class="page" style="display:none;">
+                    <h2>💌 Любовные сообщения</h2>
+                    <button id="newMessageBtn" class="btn">Новое сообщение</button>
+                    <p id="loveMessageDisplay" class="message-box">Нажми, чтобы получить тепло</p>
+                </section>
+
+                <!-- ПЛЕЙЛИСТ -->
+                <section id="page-playlist" class="page" style="display:none;">
+                    <h2>🎵 Плейлист для тебя</h2>
+                    <ul class="playlist">
+                        <li>🎶 Твоя музыка</li>
+                        <li>🎶 Ещё одна песня</li>
+                        <li>🎶 И ещё одна</li>
+                    </ul>
+                </section>
+
+                <!-- МЫСЛИ -->
+                <section id="page-thoughts" class="page" style="display:none;">
+                    <h2>📝 Мысли о тебе</h2>
+                    <div class="thought-box">
+                        <p>Ты — причина моей улыбки.</p>
+                        <p>Я думаю о тебе даже в тишине.</p>
+                        <p>Ты — не случайность.</p>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <p>Сделано с теплом ❤️</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Регистрация Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
