@@ -9,56 +9,28 @@ body {
     font-style: italic;
     background: #0b0820;
     color: #f0eeff;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
 #app {
+    max-width: 400px;
     width: 100%;
-    max-width: 420px;
     min-height: 100vh;
     background: radial-gradient(ellipse at 30% 20%, #1a1040, #0b0820 80%);
-    padding: 16px;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
-/* ЭКРАН ЗАГРУЗКИ */
-#splash {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 28px;
-    animation: fadeOut 2s ease forwards;
-}
-
-#splash h1 {
-    font-size: 60px;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; display: none; }
-}
-
-/* ШАПКА */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
@@ -68,14 +40,13 @@ header h1 {
     color: #f9d976;
 }
 
-#themeToggle {
+#themeBtn {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
 }
 
-/* НАВИГАЦИЯ */
 nav {
     display: flex;
     justify-content: space-around;
@@ -97,83 +68,79 @@ nav {
     transform: scale(1.1);
 }
 
-/* СТРАНИЦЫ */
+main {
+    flex: 1;
+    padding: 20px 0;
+}
+
 .page {
     display: none;
-    padding: 20px 0;
-    animation: fadePage 0.4s ease;
+    animation: fadeIn 0.3s ease;
 }
 
 .page.active {
     display: block;
 }
 
-@keyframes fadePage {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
-    margin-bottom: 16px;
-    color: #f0eeff;
+    margin-bottom: 12px;
 }
 
 #herName {
     color: #f9d976;
 }
 
-.heart-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
 .heart {
-    font-size: 60px;
-    animation: heartbeat 1.2s infinite;
+    font-size: 64px;
+    text-align: center;
+    margin: 16px 0;
+    animation: pulse 1.2s infinite;
 }
 
-@keyframes heartbeat {
+@keyframes pulse {
     0%, 100% { transform: scale(1); }
-    30% { transform: scale(1.2); }
-    60% { transform: scale(1); }
+    50% { transform: scale(1.15); }
 }
 
 .btn {
-    background: rgba(255, 255, 255, 0.02);
+    width: 100%;
+    padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.02);
-    color: #f0eeff;
-    padding: 12px 24px;
     border-radius: 40px;
+    background: rgba(255, 255, 255, 0.01);
+    color: #f0eeff;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    margin: 8px 0;
-    width: 100%;
+    margin: 6px 0;
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.02);
 }
 
-.message-box {
+.msg-box {
     margin-top: 12px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.02);
+    padding: 14px;
     border-radius: 20px;
+    background: rgba(255, 255, 255, 0.01);
     border: 1px solid rgba(255, 255, 255, 0.02);
     color: #d0c8e0;
-    font-size: 16px;
     text-align: center;
 }
 
-.day-counter {
+.days-number {
     font-size: 48px;
     color: #f9d976;
     text-align: center;
-    margin: 20px 0;
+    margin: 12px 0;
 }
 
 .playlist {
@@ -182,33 +149,21 @@ h2 {
 }
 
 .playlist li {
-    padding: 12px;
+    padding: 12px 16px;
     margin: 6px 0;
-    background: rgba(255, 255, 255, 0.01);
     border-radius: 16px;
+    background: rgba(255, 255, 255, 0.01);
     border: 1px solid rgba(255, 255, 255, 0.02);
-    font-size: 18px;
-}
-
-.thought-box p {
-    padding: 12px;
-    margin: 8px 0;
-    background: rgba(255, 255, 255, 0.01);
-    border-radius: 16px;
-    border-left: 2px solid #f9d976;
-    color: #d0c8e0;
 }
 
 footer {
     text-align: center;
-    padding: 16px 0 8px;
+    padding: 12px 0 4px;
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.03);
     border-top: 1px solid rgba(255, 255, 255, 0.01);
-    margin-top: auto;
 }
 
-/* СВЕТЛАЯ ТЕМА */
 body.light #app {
     background: radial-gradient(ellipse at 30% 20%, #f5f0fa, #e8e0f0 80%);
     color: #1c1a26;
@@ -220,22 +175,12 @@ body.light header h1 {
 
 body.light .btn {
     color: #1c1a26;
-    border-color: rgba(0, 0, 0, 0.04);
 }
 
-body.light .message-box {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(0, 0, 0, 0.02);
-    color: #1c1a26;
-}
-
-body.light .thought-box p {
-    background: rgba(0, 0, 0, 0.02);
-    border-left-color: #b78cfa;
+body.light .msg-box {
     color: #1c1a26;
 }
 
 body.light .playlist li {
-    background: rgba(0, 0, 0, 0.02);
     color: #1c1a26;
 }
